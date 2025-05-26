@@ -10,6 +10,18 @@ Answer:The SELECT statement is used to retrieve data from a table. The WHERE cla
 ## 4. How can you modify data using UPDATE statements?
 Answer:The UPDATE statement is used to modify existing data in a table. It allows you to change values in one or more columns based on specific conditions.
 Syntax: UPDATE students SET cgpa = 3.80 WHERE id = 1;
+
 students is the name of the table.
+
 SET cgpa = 3.80 indicates that the cgpa column should be updated to 3.80.
+
 WHERE id = 1 specifies which row should be updated.
+
+## 5. How can you calculate aggregate functions like COUNT(), SUM(), and AVG() in PostgreSQL
+Answer:
+
+COUNT() : SELECT COUNT(*) FROM cricketer; ---> Counts the number of rows that match a specified condition.
+
+SUM(): SELECT SUM(runs) FROM cricketer; ---> Calculates the total (sum) of a numeric column.
+
+AVG() : SELECT AVG() FROM cricketer; ---> Calculates the average value of a numeric column.
