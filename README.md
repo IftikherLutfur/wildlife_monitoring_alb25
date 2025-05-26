@@ -3,6 +3,7 @@ Answer:Postgres, also known as PostgreSQL, is a relational database management s
 
 ## 2. Explain the Primary Key and Foreign Key concepts in PostgreSQL.
 Answer:A Primary Key is a unique identifier for each row in a table. It ensures that each record in the table can be uniquely identified.
+
 A Foreign Key is a field in one table that refers to the Primary Key of another table. When two tables are connected or joined, the first table's Primary Key becomes the Foreign Key in the second table. Foreign Keys are essential for maintaining relationships between tables and ensuring referential integrity. In short, when a Primary Key from one table is used in another table, it becomes a Foreign Key.
 
 ## 3. Explain the purpose of the WHERE clause in a SELECT statement.
