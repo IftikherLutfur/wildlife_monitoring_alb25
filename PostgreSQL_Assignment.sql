@@ -57,7 +57,7 @@ SELECT r.ranger_name , count(s.sighting_id) FROM rangers as r
 LEFT join sightings as s ON r.ranger_id = s.ranger_id
 GROUP BY r.ranger_name;
 
--- Problem 5x
+-- Problem 5
 SELECT common_name FROM species
 WHERE species_id NOT IN(
 SELECT DISTINCT species_id FROM sightings);
