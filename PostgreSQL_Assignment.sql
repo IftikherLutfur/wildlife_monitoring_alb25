@@ -36,6 +36,7 @@ CREATE Table sightings (
     FOREIGN KEY (ranger_id) REFERENCES rangers(ranger_id)
 );
 
+
 INSERT INTO sightings (species_id, ranger_id, location, sighting_time, notes) VALUES
 (3, 1, 'Peak Ridge', '2024-05-10 07:45:00', 'Camera trap image captured'),
 (2, 3, 'Bankwood Area', '2024-05-12 16:20:00', 'Juvenile seen'),
@@ -44,7 +45,7 @@ INSERT INTO sightings (species_id, ranger_id, location, sighting_time, notes) VA
 
 
 --Problem 1
-INSERT INTO rangers (ranger_id, ranger_name, region) VALUES (4,'ABdullah', 'Eastern Mountain');
+INSERT INTO rangers (ranger_name, region) VALUES ('Derek Fox', 'Coastal Plains');
 
 --Problem 2
 SELECT count(DISTINCT species_id) as unique_species FROM sightings;
@@ -53,7 +54,7 @@ SELECT count(DISTINCT species_id) as unique_species FROM sightings;
 SELECT * FROM sightings WHERE "location" ILIKE  '%pass%';
 
 --Problem 4
-SELECT r.ranger_name , count(s.sighting_id) FROM rangers as r 
+SELECT r.ranger_name as name , count(s.sighting_id) as total_sightings FROM rangers as r 
 LEFT join sightings as s ON r.ranger_id = s.ranger_id
 GROUP BY r.ranger_name;
 
@@ -61,14 +62,14 @@ GROUP BY r.ranger_name;
 SELECT common_name FROM species
 WHERE species_id NOT IN(
 SELECT DISTINCT species_id FROM sightings);
-
+ 
 --Problem 6
-SELECT sp.common_name, s.sighting_time, r.ranger_name
+SELECT sp.common_name, s.sighting_time, r.ranger_name as name
 FROM sightings as s 
 JOIN species as sp ON s.species_id = sp.species_id
-JOIN rangers r on s.ranger_id = r.ranger_id
+JOIN rangers as r on s.ranger_id = r.ranger_id 
 ORDER BY s.sighting_time DESC
-LIMIT 2;
+LIMIT 2; 
 
 --Problem 7
 UPDATE species
@@ -93,6 +94,8 @@ DELETE FROM rangers
 WHERE ranger_id NOT IN (
     SELECT ranger_id FROM sightings
 );
+
+
 
 
 
