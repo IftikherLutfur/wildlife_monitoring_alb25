@@ -1,16 +1,16 @@
  ## 1. What is Postgres?
-Answer:Postgres, also known as PostgreSQL, is a relational database management system (RDBMS). It is used to manage and organize data using SQL, which stands for Structured Query Language.
+Answer:Postgres, যা PostgreSQL নামেও পরিচিত, একটি রিলেশনাল ডেটাবেজ ম্যানেজমেন্ট সিস্টেম (RDBMS)। এটি SQL (Structured Query Language) ব্যবহার করে ডেটা পরিচালনা ও সংগঠিত করার জন্য ব্যবহৃত হয়।
 
 ## 2. Explain the Primary Key and Foreign Key concepts in PostgreSQL.
-Answer:A Primary Key is a unique identifier for each row in a table. It ensures that each record in the table can be uniquely identified.
+Answer:Primary Key হলো একটি টেবিলের প্রতিটি সারির জন্য একটি ইউনিক আইডেন্টিফায়ার (অনন্য সনাক্তকারী)। এটি নিশ্চিত করে যে টেবিলের প্রতিটি রেকর্ডকে আলাদাভাবে এবং নির্ভুলভাবে সনাক্ত করা যায়।
 
-A Foreign Key is a field in one table that refers to the Primary Key of another table. When two tables are connected or joined, the first table's Primary Key becomes the Foreign Key in the second table. Foreign Keys are essential for maintaining relationships between tables and ensuring referential integrity. In short, when a Primary Key from one table is used in another table, it becomes a Foreign Key.
+Foreign Key হলো একটি টেবিলের এমন একটি ফিল্ড, যা অন্য একটি টেবিলের Primary Key-এর দিকে ইঙ্গিত করে। যখন দুটি টেবিলের মধ্যে সংযোগ বা সম্পর্ক স্থাপন করা হয়, তখন প্রথম টেবিলের Primary Key দ্বিতীয় টেবিলে Foreign Key হয়ে যায়। টেবিলগুলোর মধ্যে সম্পর্ক বজায় রাখা এবং ডেটার রেফারেন্স সঠিকভাবে মেইনটেইন করার জন্য Foreign Key খুবই গুরুত্বপূর্ণ। সংক্ষেপে, যখন একটি টেবিলের Primary Key অন্য একটি টেবিলে ব্যবহৃত হয়, তখন সেটি সেই টেবিলের Foreign Key হয়ে যায়।
 
 ## 3. Explain the purpose of the WHERE clause in a SELECT statement.
-Answer:The SELECT statement is used to retrieve data from a table. The WHERE clause is used to filter the data based on specific conditions.For example, without WHERE, all records from the table will be displayed. With WHERE, only the records that meet the condition will be shown. This allows for conditional data selection or filtering.
+Answer:SELECT স্টেটমেন্ট একটি টেবিল থেকে ডেটা বের করে আনার জন্য ব্যবহার করা হয়। WHERE ক্লজ ব্যবহার করা হয় নির্দিষ্ট শর্তের ভিত্তিতে ডেটা ফিল্টার করার জন্য। উদাহরণস্বরূপ, যদি WHERE না দেওয়া হয়, তাহলে টেবিলের সব রেকর্ড দেখানো হবে। আর যদি WHERE ব্যবহার করা হয়, তাহলে শুধুমাত্র যেসব রেকর্ড শর্ত পূরণ করে, সেগুলোই দেখানো হবে। এটি শর্তসাপেক্ষে ডেটা নির্বাচন বা ফিল্টার করার সুযোগ দেয়।
 
 ## 4. How can you modify data using UPDATE statements?
-Answer:The UPDATE statement is used to modify existing data in a table. It allows you to change values in one or more columns based on specific conditions.
+Answer:UPDATE স্টেটমেন্ট একটি টেবিলের বিদ্যমান ডেটা পরিবর্তন করার জন্য ব্যবহার করা হয়। এটি নির্দিষ্ট শর্তের ভিত্তিতে একটি বা একাধিক কলামের মান পরিবর্তন করার সুযোগ দেয়।
 
 Syntax: UPDATE students SET cgpa = 3.80 WHERE id = 1;
 
@@ -23,8 +23,8 @@ WHERE id = 1 specifies which row should be updated.
 ## 5. How can you calculate aggregate functions like COUNT(), SUM(), and AVG() in PostgreSQL
 Answer:
 
-COUNT() : SELECT COUNT(*) FROM cricketer; ---> Counts the number of rows that match a specified condition.
+COUNT() : SELECT COUNT(*) FROM cricketer; ---> নির্দিষ্ট শর্ত পূরণকারী সারির সংখ্যা গণনা করে।
 
-SUM(): SELECT SUM(runs) FROM cricketer; ---> Calculates the total (sum) of a numeric column.
+SUM(): SELECT SUM(runs) FROM cricketer; ---> একটি সংখ্যামূলক কলামের মোট (যোগফল) হিসাব করে।
 
-AVG() : SELECT AVG() FROM cricketer; ---> Calculates the average value of a numeric column.
+AVG() : SELECT AVG() FROM cricketer; ---> একটি সংখ্যামূলক কলামের গড় মান হিসাব করে।
