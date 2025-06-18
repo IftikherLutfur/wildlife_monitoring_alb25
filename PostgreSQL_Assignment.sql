@@ -4,7 +4,7 @@ CREATE TABLE rangers (
     ranger_name VARCHAR(50) NOT NULL,
     region VARCHAR(100) NOT NULL
 );
-INSERT INTO rangers (ranger_name, region) VALUES
+INSERT INTO rangers ("name", region) VALUES
 ('Alice Green', 'Northern Hills'),
 ('Bob White', 'River Delta'),
 ('Carol King', 'Mountain Range');
@@ -21,8 +21,8 @@ INSERT INTO species (common_name, scientific_name, discovery_date, conservation_
 ('Snow Leopard', 'Panthera uncia', '1775-01-01', 'Endangered'),
 ('Bengal Tiger', 'Panthera tigris tigris', '1758-01-01', 'Endangered'),
 ('Red Panda', 'Ailurus fulgens', '1825-01-01', 'Vulnerable'),
-('Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered'),
-('Vaquita', 'Phocoena sinus', '1958-01-01', 'Critically Endangered');
+('Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered');
+
 
 
 CREATE Table sightings (
@@ -38,14 +38,16 @@ CREATE Table sightings (
 
 
 INSERT INTO sightings (species_id, ranger_id, location, sighting_time, notes) VALUES
-(3, 1, 'Peak Ridge', '2024-05-10 07:45:00', 'Camera trap image captured'),
-(2, 3, 'Bankwood Area', '2024-05-12 16:20:00', 'Juvenile seen'),
-(4, 2, 'Bamboo Grove East', '2024-05-15 09:10:00', 'Feeding observed'),
+(1, 1, 'Peak Ridge', '2024-05-10 07:45:00', 'Camera trap image captured'),
+(2, 2, 'Bankwood Area', '2024-05-12 16:20:00', 'Juvenile seen'),
+(3, 3, 'Bamboo Grove East', '2024-05-15 09:10:00', 'Feeding observed'),
 (1, 2, 'Snowfall Pass', '2024-05-18 18:30:00', NULL);
 
 
+
 --Problem 1
-INSERT INTO rangers (ranger_name, region) VALUES ('Derek Fox', 'Coastal Plains');
+INSERT INTO rangers ("name", region) VALUES ('Derek Fox', 'Coastal Plains');
+
 
 --Problem 2
 SELECT count(DISTINCT species_id) as unique_species FROM sightings;
@@ -54,9 +56,9 @@ SELECT count(DISTINCT species_id) as unique_species FROM sightings;
 SELECT * FROM sightings WHERE "location" ILIKE  '%pass%';
 
 --Problem 4
-SELECT r.ranger_name as name , count(s.sighting_id) as total_sightings FROM rangers as r 
-LEFT join sightings as s ON r.ranger_id = s.ranger_id
-GROUP BY r.ranger_name;
+SELECT r.name as name , count(s.sighting_id) as total_sightings FROM rangers as r 
+INNER join sightings as s ON r.ranger_id = s.ranger_id
+GROUP BY r.name;
 
 -- Problem 5
 SELECT common_name FROM species
@@ -64,7 +66,7 @@ WHERE species_id NOT IN(
 SELECT DISTINCT species_id FROM sightings);
  
 --Problem 6
-SELECT sp.common_name, s.sighting_time, r.ranger_name as name
+SELECT sp.common_name, s.sighting_time, r.name as name
 FROM sightings as s 
 JOIN species as sp ON s.species_id = sp.species_id
 JOIN rangers as r on s.ranger_id = r.ranger_id 
